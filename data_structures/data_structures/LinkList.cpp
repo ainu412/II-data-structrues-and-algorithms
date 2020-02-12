@@ -140,7 +140,8 @@ void listDelPos(LinkList*& linkList, int pos) {
 		cerr << "Input position out of range!" << endl; return;
 	}
 	p->nxt = s->nxt;//前一个重写
-	s->nxt = NULL;//自己也要记得清零哦!
+
+	delete s;//记得删除自己!
 }
 void listDelVal(LinkList*& linkList, int value) {
 	if (!linkList || !linkList->nxt) {
@@ -153,7 +154,7 @@ void listDelVal(LinkList*& linkList, int value) {
 	while (s) {
 		if (value == s->data) {
 			p->nxt = s->nxt;
-			s->nxt = NULL;
+			delete s;//记得删除自己!
 			return;
 		}
 		p = p->nxt;

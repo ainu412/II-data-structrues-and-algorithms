@@ -27,14 +27,13 @@ enum class DIR {
 	ALL
 };
 
-//星星的顺序表:
-typedef struct _sqlist {
-	star_t* elems;//顺序表的基地址
-	int size;
-	int length;
-}sqlist;
+//星星的单向链表:
+typedef struct _LinkNode {
+	star_t data;
+	struct _LinkNode* nxt;
+}LinkList, LinkNode;
 
-bool initSqlist(sqlist& s);
-bool listAppend(sqlist& s, star_t e);
-bool listDel(sqlist& s, int pos);
-void listDestroy(sqlist& s);
+void listInit(LinkList*& linkList);
+void listInsert_back(LinkList*& linkList, LinkNode* linkNode);
+void listDel(LinkList*& linkList, int pos);
+void listDestroy(LinkList*& linklist);
