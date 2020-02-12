@@ -58,6 +58,7 @@ int main() {
 		printf("u的地址:%p	node: %p\n", u, &(u->node));
 
 		listInsert_back(user->node, u->node);
+		//注意还不能删u,不然m个u的地址完全相同!!
 	}
 
 
